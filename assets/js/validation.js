@@ -47,13 +47,13 @@ $(function(){
     }
 
     function check_phno() {
-       var pattern = /^[6-9]{1}[0-9]{9}/;
+       var pattern = /[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}/;
        var phno = $("#phno").val()
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
           $("#phno").css("border-bottom","2px solid #34F458");
        } else {
-          $("#phno_error_message").html("Enter 10 digit Mobile number");
+          $("#phno_error_message").html("Phone Number (Format: +99(99)9999-9999");
           $("#phno_error_message").show();
           $("#phno").css("border-bottom","2px solid #F90A0A");
           error_phno = true;
