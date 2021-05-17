@@ -47,7 +47,11 @@ $(function(){
     }
 
     function check_phno() {
+<<<<<<< HEAD
        var pattern = /[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}/;
+=======
+       var pattern = /^\(\d{3}\)\s*\d{3}(?:-|\s*)\d{4}$/;
+>>>>>>> 52bfb724eab2f9c850ba31f5c8bee29f12c5636d
        var phno = $("#phno").val()
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
