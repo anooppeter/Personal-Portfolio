@@ -47,7 +47,7 @@ $(function(){
     }
 
     function check_phno() {
-       var pattern = /^\d{10}$/;
+       var pattern = /^\(\d{3}\)\s*\d{3}(?:-|\s*)\d{4}$/;
        var phno = $("#phno").val()
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
