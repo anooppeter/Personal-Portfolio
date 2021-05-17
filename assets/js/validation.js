@@ -47,7 +47,7 @@ $(function(){
     }
 
     function check_phno() {
-       var pattern = /^[0-9]{1}[0-9]{9}/;
+       var pattern = /^\d{10}$/;
        var phno = $("#phno").val()
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
