@@ -28,7 +28,7 @@ $(function(){
           $("#fname_error_message").hide();
           $("#name").css("border-bottom","2px solid #ffb727");
        } else {
-          $("#fname_error_message").html("Should contain only Characters");
+          $("#fname_error_message").html("only Characters allowed");
           $("#fname_error_message").show();
           $("#name").css("border-bottom","2px solid #F90A0A");
           error_fname = true;
@@ -39,7 +39,7 @@ $(function(){
       var userFname = document.getElementById('name').value;
       
       if(userFname.replace(/\s/g, "").length <= 0){
-        $("#whitespace_error_message_one").html("Please Enter Your Firstname");
+        $("#whitespace_error_message_one").html("Please Enter Your Fullname");
         $("#whitespace_error_message_one").show();
         $("#name").css("border-bottom","2px solid #F90A0A");
         whitespace_error = true;
