@@ -3,13 +3,16 @@ $(function(){
     $("#fname_error_message").hide();
     $("#email_error_message").hide();
     $("#phno_error_message").hide();
+    $("#whitespace_error_message_one").hide();
 
     var error_fname = false;
     var error_phno = false;
     var error_email = false;
+    var whitespace_error = false;
 
     $("#name").focusout(function(){
       check_fname();
+      white_space_one();
     });
     $("#email").focusout(function() {
        check_email();
@@ -23,7 +26,7 @@ $(function(){
        var fname = $("#name").val();
        if (pattern.test(fname) && fname !== '') {
           $("#fname_error_message").hide();
-          $("#name").css("border-bottom","2px solid #34F458");
+          $("#name").css("border-bottom","2px solid #ffb727");
        } else {
           $("#fname_error_message").html("Should contain only Characters");
           $("#fname_error_message").show();
@@ -32,12 +35,25 @@ $(function(){
        }
     }
 
+    function white_space_one() {
+      var userFname = document.getElementById('name').value;
+      
+      if(userFname.replace(/\s/g, "").length <= 0){
+        $("#whitespace_error_message_one").html("Please Enter Your Firstname");
+        $("#whitespace_error_message_one").show();
+        $("#name").css("border-bottom","2px solid #F90A0A");
+        whitespace_error = true;
+      }else{
+        $("#whitespace_error_message_one").hide();
+      }
+    }
+
     function check_email() {
        var pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
        var email = $("#email").val();
        if (pattern.test(email) && email !== '') {
           $("#email_error_message").hide();
-          $("#email").css("border-bottom","2px solid #34F458");
+          $("#email").css("border-bottom","2px solid #ffb727");
        } else {
           $("#email_error_message").html("Invalid Email");
           $("#email_error_message").show();
@@ -48,13 +64,13 @@ $(function(){
 
     function check_phno() {
 
-       var pattern = /[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}/;
+       var pattern = /^[6-9][0-9]{9}$/;
        var phno = $("#phno").val()
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
-          $("#phno").css("border-bottom","2px solid #34F458");
+          $("#phno").css("border-bottom","2px solid #ffb727");
        } else {
-          $("#phno_error_message").html("Phone Number (Format: +99(99)9999-9999");
+          $("#phno_error_message").html("Enter valid 10 Digit Phone Number");
           $("#phno_error_message").show();
           $("#phno").css("border-bottom","2px solid #F90A0A");
           error_phno = true;
@@ -67,14 +83,16 @@ $(function(){
        error_fname = false;
        error_email = false;
        error_phno = false;
+       whitespace_error = false
        
 
        check_fname();
        check_email();
        check_phno();
+       white_space_one();
        
 
-       if (error_fname === false && error_phno === false && error_email === false ) {
+       if (error_fname === false && error_phno === false && error_email === false && whitespace_error ===false) {
            
           
                $.ajax({
