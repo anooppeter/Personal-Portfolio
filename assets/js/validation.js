@@ -17,7 +17,7 @@ $(function(){
     $("#email").focusout(function() {
        check_email();
     });
-    $("#phno").keydown(function() {
+    $("#phno").keyup(function() {
        check_phno();
     });
 
