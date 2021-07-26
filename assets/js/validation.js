@@ -63,7 +63,7 @@ $(function(){
           $("#email_error_message").html("");
           $("#email").css("border-bottom","2px solid #ffb727");
        } else {
-          $("#email_error_message").html("*Invalid email");
+          $("#email_error_message").html("*Valid email required");
           $("#email_error_message").css("color","#ff0f0f");
           $("#email_error_message").css("font-size","14px");
           $("#email_error_message").show();
