@@ -10,11 +10,12 @@ $(function(){
     var error_email = false;
     var whitespace_error = false;
 
-    $("#name").focusout(function(){
+    $("#name").keyup(function(){
       check_fname();
       white_space_one();
     });
-    $("#email").focusout(function() {
+    
+    $("#email").keyup(function() {
        check_email();
     });
     $("#phno").keyup(function() {
@@ -25,10 +26,13 @@ $(function(){
        var pattern = /^[a-zA-Z\s]*$/;
        var fname = $("#name").val();
        if (pattern.test(fname) && fname !== '') {
-          $("#fname_error_message").hide();
+          $("#fname_error_message").html("");
           $("#name").css("border-bottom","2px solid #ffb727");
        } else {
-          $("#fname_error_message").html("only Characters allowed");
+          $("#fname_error_message").html("only characters");
+          $("#fname_error_message").css("color","#ff0f0f");
+          $("#fname_error_message").css("font-size","15px");
+
           $("#fname_error_message").show();
           $("#name").css("border-bottom","2px solid #F90A0A");
           error_fname = true;
@@ -39,12 +43,14 @@ $(function(){
       var userFname = document.getElementById('name').value;
       
       if(userFname.replace(/\s/g, "").length <= 0){
-        $("#whitespace_error_message_one").html("Please Enter Your Fullname");
+        $("#whitespace_error_message_one").html("*name required");
+        $("#whitespace_error_message_one").css("color","#ff0f0f");
+        $("#whitespace_error_message_one").css("font-size","15px");
         $("#whitespace_error_message_one").show();
         $("#name").css("border-bottom","2px solid #F90A0A");
         whitespace_error = true;
       }else{
-        $("#whitespace_error_message_one").hide();
+        $("#whitespace_error_message_one").html("");
       }
     }
 
@@ -55,7 +61,9 @@ $(function(){
           $("#email_error_message").hide();
           $("#email").css("border-bottom","2px solid #ffb727");
        } else {
-          $("#email_error_message").html("Invalid Email");
+          $("#email_error_message").html("*invalid email");
+          $("#email_error_message").css("color","#ff0f0f");
+          $("#email_error_message").css("font-size","15px");
           $("#email_error_message").show();
           $("#email").css("border-bottom","2px solid #F90A0A");
           error_email = true;
@@ -70,7 +78,10 @@ $(function(){
           $("#phno_error_message").hide();
           $("#phno").css("border-bottom","2px solid #ffb727");
        } else {
-          $("#phno_error_message").html("Enter valid 10 Digit Phone Number");
+          $("#phno_error_message").html("*enter 10 digit mobile number");
+          $("#phno_error_message").css("color","#ff0f0f");
+          $("#phno_error_message").css("font-size","15px");
+
           $("#phno_error_message").show();
           $("#phno").css("border-bottom","2px solid #F90A0A");
           error_phno = true;
@@ -78,12 +89,13 @@ $(function(){
     }
 
     
+    
 
     $("#submit-form").submit(function(){
        error_fname = false;
        error_email = false;
        error_phno = false;
-       whitespace_error = false
+       whitespace_error = false;
        
 
        check_fname();
@@ -100,12 +112,11 @@ $(function(){
                    data:$("#submit-form").serialize(),
                    type:"post",
                    success:function (response){
-                       alert("Form submitted successfully")
+                       alert("Form submitted successfully");
                        window.location.reload()
-                       //window.location.href="https://google.com"
                    },
                    error:function (err){
-                       alert("Something Error")
+                       alert("Something Error");
          
                    },  
                })
