@@ -22,7 +22,7 @@ $(function(){
        check_phno();
     });
 
-    function check_fname() {
+   function check_fname() {
        var pattern = /^[a-zA-Z\s]*$/;
        var fname = $("#name").val();
        if (pattern.test(fname) && fname !== '') {
@@ -33,7 +33,7 @@ $(function(){
          
           $("#fname_error_message").html("*alphabets only");
           $("#fname_error_message").css("color","#ff0f0f");
-          $("#fname_error_message").css("font-size","15px");
+          $("#fname_error_message").css("font-size","14px");
 
           $("#fname_error_message").show();
           $("#name").css("border-bottom","2px solid #F90A0A");
@@ -47,7 +47,7 @@ $(function(){
       if(userFname.replace(/\s/g, "").length <= 0 && userFname !== ''){
         $("#whitespace_error_message_one").html("*name required");
         $("#whitespace_error_message_one").css("color","#ff0f0f");
-        $("#whitespace_error_message_one").css("font-size","15px");
+        $("#whitespace_error_message_one").css("font-size","13px");
         $("#whitespace_error_message_one").show();
         $("#name").css("border-bottom","2px solid #F90A0A");
         whitespace_error = true;
@@ -60,12 +60,12 @@ $(function(){
        var pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
        var email = $("#email").val();
        if (pattern.test(email) && email !== '') {
-          $("#email_error_message").hide();
+          $("#email_error_message").html("");
           $("#email").css("border-bottom","2px solid #ffb727");
        } else {
           $("#email_error_message").html("*invalid email");
           $("#email_error_message").css("color","#ff0f0f");
-          $("#email_error_message").css("font-size","15px");
+          $("#email_error_message").css("font-size","13px");
           $("#email_error_message").show();
           $("#email").css("border-bottom","2px solid #F90A0A");
           error_email = true;
@@ -79,16 +79,25 @@ $(function(){
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
           $("#phno").css("border-bottom","2px solid #ffb727");
-       } else {
+       } else if(phno.length<10) {
           $("#phno_error_message").html("*enter 10 digit mobile number");
           $("#phno_error_message").css("color","#ff0f0f");
-          $("#phno_error_message").css("font-size","15px");
+          $("#phno_error_message").css("font-size","14px");
 
           $("#phno_error_message").show();
           $("#phno").css("border-bottom","2px solid #F90A0A");
           error_phno = true;
+       }else if(phno.length>10){
+         $("#phno_error_message").html("*invalid number");
+         $("#phno_error_message").css("color","#ff0f0f");
+         $("#phno_error_message").css("font-size","14px");
+
+         $("#phno_error_message").show();
+         $("#phno").css("border-bottom","2px solid #F90A0A");
+         error_phno = true;
        }
     }
+
 
     
     
