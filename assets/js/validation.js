@@ -26,10 +26,12 @@ $(function(){
        var pattern = /^[a-zA-Z\s]*$/;
        var fname = $("#name").val();
        if (pattern.test(fname) && fname !== '') {
-          $("#fname_error_message").html("");
+          $("#fname_error_message").hide();
           $("#name").css("border-bottom","2px solid #ffb727");
+          
        } else {
-          $("#fname_error_message").html("only characters");
+         
+          $("#fname_error_message").html("*alphabets only");
           $("#fname_error_message").css("color","#ff0f0f");
           $("#fname_error_message").css("font-size","15px");
 
@@ -42,7 +44,7 @@ $(function(){
     function white_space_one() {
       var userFname = document.getElementById('name').value;
       
-      if(userFname.replace(/\s/g, "").length <= 0){
+      if(userFname.replace(/\s/g, "").length <= 0 && userFname !== ''){
         $("#whitespace_error_message_one").html("*name required");
         $("#whitespace_error_message_one").css("color","#ff0f0f");
         $("#whitespace_error_message_one").css("font-size","15px");
@@ -50,7 +52,7 @@ $(function(){
         $("#name").css("border-bottom","2px solid #F90A0A");
         whitespace_error = true;
       }else{
-        $("#whitespace_error_message_one").html("");
+        $("#whitespace_error_message_one").hide();
       }
     }
 
