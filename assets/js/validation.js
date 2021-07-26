@@ -47,7 +47,7 @@ $(function(){
       if(userFname.replace(/\s/g, "").length <= 0 && userFname !== ''){
         $("#whitespace_error_message_one").html("*name required");
         $("#whitespace_error_message_one").css("color","#ff0f0f");
-        $("#whitespace_error_message_one").css("font-size","13px");
+        $("#whitespace_error_message_one").css("font-size","14px");
         $("#whitespace_error_message_one").show();
         $("#name").css("border-bottom","2px solid #F90A0A");
         whitespace_error = true;
@@ -65,7 +65,7 @@ $(function(){
        } else {
           $("#email_error_message").html("*invalid email");
           $("#email_error_message").css("color","#ff0f0f");
-          $("#email_error_message").css("font-size","13px");
+          $("#email_error_message").css("font-size","14px");
           $("#email_error_message").show();
           $("#email").css("border-bottom","2px solid #F90A0A");
           error_email = true;
