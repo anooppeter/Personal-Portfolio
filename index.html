@@ -307,14 +307,14 @@
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Me</h3>
-                  <p>Anoop.peterkv@gmail.com</p>
+                  <a href="mailto:anoop.peterkv@gmail.com" target="_blank">Anoop.peterkv@gmail.com </a>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
                   <h3>Call Me</h3>
-                  <p>+91 8086 522 335</p>
+                  <a href="tel:8086522335" target="_blank">+91 8086 522 335</a>
                 </div>
               </div>
             </div>
@@ -335,7 +335,7 @@
                 </div>
               </div>
               <div class="form-group mt-3">
-                 <input type="text" min="1" max="9999999999" maxlength="10" class="form-control" name="phno" id="phno" placeholder="Phone Number " autocomplete="off">
+                 <input type="tel" min="1" max="9999999999" maxlength="10" class="form-control" name="phno" id="phno" placeholder="Phone Number " autocomplete="off" oninput="this.value = this.value.replace(/\D/g,'')"/>
                 <span class="error_form" id="phno_error_message"></span>
               </div>  
               <div class="form-group mt-3">
