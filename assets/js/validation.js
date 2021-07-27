@@ -76,16 +76,11 @@ $(function(){
 
        var pattern = /^[6-9][0-9]{9}$/;
        var phno = $("#phno").val()
-       document.querySelector("#phno").addEventListener("keypress", function (evt) {
-         if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57)
-         {
-             evt.preventDefault();
-         }
-         });
+
        if (pattern.test(phno) && phno !== '') {
           $("#phno_error_message").hide();
           $("#phno").css("border-bottom","2px solid #ffb727");
-       } else if(phno.length<10) {
+       } else {
           $("#phno_error_message").html("*Enter 10 digit mobile number");
           $("#phno_error_message").css("color","#ff0f0f");
           $("#phno_error_message").css("font-size","14px");
@@ -93,14 +88,6 @@ $(function(){
           $("#phno_error_message").show();
           $("#phno").css("border-bottom","2px solid #F90A0A");
           error_phno = true;
-       }else if(phno.length>10){
-         $("#phno_error_message").html("*Invalid number");
-         $("#phno_error_message").css("color","#ff0f0f");
-         $("#phno_error_message").css("font-size","14px");
-
-         $("#phno_error_message").show();
-         $("#phno").css("border-bottom","2px solid #F90A0A");
-         error_phno = true;
        }
     }
 
@@ -141,7 +128,6 @@ $(function(){
 
           return true;
        } else {
-          alert("Please Fill the form Correctly");
           return false;
        }
     });
